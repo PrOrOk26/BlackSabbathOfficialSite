@@ -1,4 +1,5 @@
 import { testFunction } from "./testing";
+import '../scss/index.scss';
 
 console.log("shit, this is actually working!");
 
@@ -15,6 +16,6 @@ const test = undefined;
 const test2 = test ?? "This does work!!!";
 const test3 = document.createElement("h1");
 test3.innerText = test2;
-mainDiv.appendChild(test3);
+// mainDiv.appendChild(test3);
 
 testFunction();
