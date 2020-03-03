@@ -22,9 +22,21 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader',
+          'resolve-url-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            }
+          }
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        use: [
+          'file-loader',
+        ]
+      }
     ]
   },
   resolve: {

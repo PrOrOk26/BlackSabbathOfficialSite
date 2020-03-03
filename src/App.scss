@@ -1,0 +1,29 @@
+body {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+    right: 0;
+    background: url('./assets/background.jpg');
+
+	.main-div {
+		position: relative;
+		height: 150px;
+
+		.heading {
+			position: absolute;
+			top: 7px;
+			left: 13px;
+			z-index: 1000;
+			height: 0;
+			padding: 115px 0 0;
+			width: 229px;
+			background: no-repeat url('./assets/logo.png');
+		}
+
+		button {
+			position: absolute;
+			right: 0;
+		}
+	}
+}
