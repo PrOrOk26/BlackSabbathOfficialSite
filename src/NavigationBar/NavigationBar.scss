@@ -27,5 +27,19 @@
     position: relative;
     padding: 0;
     width: 100%;
+
+    .main-category {
+      &__link,
+      .subcategory__link {
+        color: #000;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        padding: 0 26px 0 18px;
+        overflow: visible;
+        width: 100%;
+      }
+    }
   }
 }
