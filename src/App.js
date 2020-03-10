@@ -1,17 +1,57 @@
-import createElement from './shared/components.js';
-import NavigationBar from './NavigationBar/NavigationBar.js';
+import createElement from "./shared/components.js";
+import NavigationBar from "./NavigationBar/NavigationBar.js";
 
 const App = () => {
-  return createElement('div',
+  const onNavbarToggle = e => {
+    const navbar = document.getElementsByClassName("navbar")[0];
+    const container = document.getElementsByClassName("container")[0];
+    const trigger = document.getElementsByClassName("navigation-trigger")[0];
+
+    navbar.classList.toggle("navbar-active");
+    container.classList.toggle("menu-opened");
+    trigger.classList.toggle("open");
+  };
+
+  return createElement(
+    "div",
     {
-      class: 'main-div',
+      class: "container"
     },
-    createElement('h1',
+    createElement("div", {
+      class: "navbar-overlay",
+      onclick: onNavbarToggle
+    }),
+    createElement("div", {
+      class: "logo"
+    }),
+    createElement(
+      "a",
       {
-        class: 'heading'
-      }
+        class: "navigation-trigger",
+        onclick: onNavbarToggle
+      },
+      createElement(
+        "div",
+        {
+          class: "hamburger"
+        },
+        createElement("span", {}),
+        createElement("span", {}),
+        createElement("span", {}),
+      ),
+      createElement(
+        "div",
+        {
+          class: "cross"
+        },
+        createElement("span", {}),
+        createElement("span", {}),
+      )
     ),
-    NavigationBar()
+    NavigationBar({ onNavbarToggle: onNavbarToggle }),
+    createElement("main", {
+      class: "content"
+    })
   );
 };
 
