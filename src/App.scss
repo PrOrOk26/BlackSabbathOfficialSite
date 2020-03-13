@@ -4,7 +4,6 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: url("./assets/background.jpg");
   font-family: proxima-nova, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -14,10 +13,25 @@ body {
     position: relative;
     padding-top: 40px;
 
+    .background {
+      img {
+        height: 100vh;
+        object-fit: cover;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+
     .logo {
       position: absolute;
-      top: 7px;
-      left: 40%;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      right: 0;
       z-index: 100;
       height: 0;
       padding: 115px 0 0;
@@ -45,8 +59,8 @@ body {
         span {
           content: "";
           display: block;
-          height: 2px;
-          background: #ffffff;
+          height: 3px;
+          background: #000;
           width: 36px;
           border-radius: 3px;
           transition: transform 0.2s, background-color 0.2s,

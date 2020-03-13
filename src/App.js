@@ -1,5 +1,6 @@
 import createElement from "./shared/components.js";
 import NavigationBar from "./NavigationBar/NavigationBar.js";
+import BackgroundImage from "./assets/background.png";
 
 const App = () => {
   const onNavbarToggle = e => {
@@ -11,7 +12,8 @@ const App = () => {
     navbar.classList.toggle("navbar-active");
     container.classList.toggle("menu-opened");
     trigger.classList.toggle("open");
-    subcategories && subcategories.forEach(elem => elem.classList.remove('active'));
+    subcategories &&
+      subcategories.forEach(elem => elem.classList.remove("active"));
   };
 
   return createElement(
@@ -19,6 +21,15 @@ const App = () => {
     {
       class: "container"
     },
+    createElement(
+      "div",
+      {
+        class: 'background'
+      },
+      createElement("img", {
+        src: BackgroundImage
+      })
+    ),
     createElement("div", {
       class: "navbar-overlay",
       onclick: onNavbarToggle
@@ -39,7 +50,7 @@ const App = () => {
         },
         createElement("span", {}),
         createElement("span", {}),
-        createElement("span", {}),
+        createElement("span", {})
       ),
       createElement(
         "div",
@@ -47,7 +58,7 @@ const App = () => {
           class: "cross"
         },
         createElement("span", {}),
-        createElement("span", {}),
+        createElement("span", {})
       )
     ),
     NavigationBar({ onNavbarToggle: onNavbarToggle }),
