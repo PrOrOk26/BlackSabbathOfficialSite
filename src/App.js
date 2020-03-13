@@ -6,10 +6,12 @@ const App = () => {
     const navbar = document.getElementsByClassName("navbar")[0];
     const container = document.getElementsByClassName("container")[0];
     const trigger = document.getElementsByClassName("navigation-trigger")[0];
+    const subcategories = [...document.getElementsByClassName("subcategories")];
 
     navbar.classList.toggle("navbar-active");
     container.classList.toggle("menu-opened");
     trigger.classList.toggle("open");
+    subcategories && subcategories.forEach(elem => elem.classList.remove('active'));
   };
 
   return createElement(

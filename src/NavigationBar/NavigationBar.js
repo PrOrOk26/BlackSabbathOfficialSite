@@ -1,33 +1,30 @@
 import createElement from "../shared/components.js";
 
 const NavigationBar = props => {
-
-  const {
-    onNavbarToggle
-  } = props;
+  const { onNavbarToggle } = props;
 
   const menuElements = [
     {
-      name: "THE BAND",
+      name: "The band",
       subElements: [
-        { name: "DISCOGRAPHY" },
-        { name: "HISTORY" },
-        { name: "AWARDS" }
+        { name: "Discography" },
+        { name: "History" },
+        { name: "Awards" }
       ]
     },
     {
-      name: "EVENTS",
-      subElements: [{ name: "PAST EVENTS" }, { name: "UPCOMING EVENTS" }]
+      name: "Events",
+      subElements: [{ name: "Past" }, { name: "Upcoming" }]
     },
     {
-      name: "NEWS"
+      name: "News"
     },
     {
-      name: "MEDIA",
-      subElements: [{ name: "VIDEOS" }, { name: "PHOTOS" }]
+      name: "Media",
+      subElements: [{ name: "Videos" }, { name: "Photos" }]
     },
     {
-      name: "SHOP",
+      name: "Shop",
       subElements: [
         { name: "US" },
         { name: "Canada" },
@@ -47,7 +44,7 @@ const NavigationBar = props => {
       {
         class: "navbar__categories"
       },
-      ...menuElements.map(elem => {
+      ...menuElements.map((elem, index) => {
         return createElement(
           "li",
           {
@@ -57,7 +54,15 @@ const NavigationBar = props => {
             "a",
             {
               class: "main-category__link",
-              href: "#"
+              href: "#",
+              onclick: elem.subElements && (e => {
+                const subcategoriesContainer = e.path.find(elem => elem.className === 'main-category').getElementsByClassName(
+                  "subcategories"
+                )[0];
+                if (subcategoriesContainer) {
+                  subcategoriesContainer.classList.toggle("active");
+                }
+              })
             },
             createElement("span", {
               innerText: elem.name

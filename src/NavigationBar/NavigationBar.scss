@@ -23,22 +23,83 @@
 
   &__categories {
     list-style: none;
-    margin: 59px 0 0;
+    margin: 70px 0 0;
     position: relative;
     padding: 0;
     width: 100%;
 
     .main-category {
-      &__link,
-      .subcategory__link {
+      @mixin link-mixin {
         color: #000;
-        font-weight: 700;
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
         padding: 0 26px 0 18px;
         overflow: visible;
         width: 100%;
+      }
+
+      &__link {
+        @include link-mixin();
+        font-weight: 700;
+        line-height: 32px;
+      }
+
+      .subcategories {
+        opacity: 0;
+        width: 0px;
+        height: 0px;
+        visibility: hidden;
+        transition: height .5s 0s, opacity .3s 0s;
+        padding-left: 21px;
+
+        &.active {
+          width: auto;
+          visibility: initial;
+          opacity: 1;
+          transition: height .5s 0s, opacity .3s .3s, visibility .3s .3s;
+        }
+
+        .subcategory {
+          &__link {
+            @include link-mixin();
+          }
+        }
+      }
+
+      &:nth-child(1) {
+        .subcategories {
+  
+          &.active {
+            height: 23px * 3;
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        .subcategories {
+  
+          &.active {
+            height: 23px * 2;
+          }
+        }
+      }
+
+      &:nth-child(4) {
+        .subcategories {
+  
+          &.active {
+            height: 23px * 2;
+          }
+        }
+      }
+      &:nth-child(5) {
+        .subcategories {
+  
+          &.active {
+            height: 23px * 6;
+          }
+        }
       }
     }
   }
