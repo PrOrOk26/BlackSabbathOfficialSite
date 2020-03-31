@@ -1,6 +1,17 @@
 import createElement from "./shared/components.js";
 import NavigationBar from "./NavigationBar/NavigationBar.js";
+import DiscographyComponent from "./DiscographyComponent/DiscographyComponent.js";
 import BackgroundImage from "./assets/background.png";
+
+const uris = {
+  getDiscography: "https://localhost:5001/api/Records"
+};
+
+const fetchCovers = async () => {
+  const response = await fetch(uris["getDiscography"]);
+  const json = await response.json();
+  return json;
+};
 
 const App = () => {
   const onNavbarToggle = e => {
@@ -16,6 +27,38 @@ const App = () => {
       subcategories.forEach(elem => elem.classList.remove("active"));
   };
 
+  try {
+    fetchCovers().then(covers => {
+      const coversElement = document.getElementsByClassName("covers")[0];
+
+      if (coversElement) {
+        covers.forEach(cover => {
+          debugger;
+          const shit = createElement(
+            "div",
+            {
+              class: "record"
+            },
+            createElement("span", {
+              innerText: cover.recordName
+            }),
+            createElement("img", {
+              src: cover.recordCover
+            }),
+          );
+          debugger;
+          return coversElement.appendChild(
+            shit
+          );
+        });
+      } else {
+        coversElement.appendChild("No covers were loaded");
+      }
+    });
+  } catch (err) {
+    console.error(err);
+  }
+
   return createElement(
     "div",
     {
@@ -24,7 +67,7 @@ const App = () => {
     createElement(
       "div",
       {
-        class: 'background'
+        class: "background"
       },
       createElement("img", {
         src: BackgroundImage
@@ -62,9 +105,13 @@ const App = () => {
       )
     ),
     NavigationBar({ onNavbarToggle: onNavbarToggle }),
-    createElement("main", {
-      class: "content"
-    })
+    createElement(
+      "main",
+      {
+        class: "content"
+      },
+      DiscographyComponent()
+    )
   );
 };
 
