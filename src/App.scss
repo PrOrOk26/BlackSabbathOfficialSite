@@ -11,19 +11,13 @@ body {
 
   .container {
     position: relative;
-    padding-top: 40px;
 
-    .background {
-      img {
-        height: 100vh;
-        object-fit: cover;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
+    .main-image {
+      background: url("./assets/images/background.jpg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      height: 100vh;
     }
 
     .logo {
@@ -31,16 +25,17 @@ body {
       text-align: center;
       left: 50%;
       transform: translateX(-50%);
+      top: 10px;
       right: 0;
       z-index: 100;
       height: 0;
       padding: 115px 0 0;
       width: 229px;
-      background: no-repeat url("./assets/logo.png");
+      background: no-repeat url("./assets/images/logo.png");
     }
 
     .navigation-trigger {
-      position: absolute;
+      position: fixed;
       top: 0;
       width: 70px;
       height: 70px;
@@ -168,6 +163,35 @@ body {
       .navbar-overlay {
         opacity: 0.5;
         visibility: visible;
+      }
+    }
+
+    .content {
+      font-family: "FuturaStd-Book", "Futura", "Trebuchet MS", Arial, sans-serif;
+      text-align: center;
+      letter-spacing: normal;
+      line-height: 25px;
+      font-size: 14px;
+      font-weight: 300;
+
+      &__title {
+        margin: 20px 0 40px;
+      }
+
+      &__main-text {
+        margin: 40px;
+      }
+    }
+
+    .social-media {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .twitter {
+        height: 432px;
+        width: 500px;
+        overflow-y: scroll;
       }
     }
   }
