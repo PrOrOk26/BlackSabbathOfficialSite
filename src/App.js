@@ -3,11 +3,9 @@ import useRouter from "./shared/Router/useRouter.js";
 import NavigationBar from "./NavigationBar/NavigationBar.js";
 import LandingPage from "./LandingPage/LandingPage.js";
 import DiscographyComponent from "./DiscographyComponent/DiscographyComponent.js";
-import BackgroundImage from "./assets/images/background.jpg";
 
 const App = () => {
   const { addRoute, onNavItemClick } = useRouter();
-  const contentHeight = 1800;
 
   addRoute("/", () => {
     const mainContent = document.getElementsByClassName("content")[0];
@@ -59,7 +57,7 @@ const App = () => {
         </div>
       </a>
       {NavigationBar({ onNavbarToggle, onNavItemClick })}
-      <main style={`height: ${contentHeight}px`} class="content"></main>
+      <main style="height: 1800px" class="content"></main>
     </div>
   );
 };

@@ -84,10 +84,13 @@ const NavigationBar = props => {
               onclick:
                 elem.subElements &&
                 (e => {
-                  const subcategoriesContainer = e.path
-                    .find(elem => elem.className === "main-category")
-                    .getElementsByClassName("subcategories")[0];
+                  debugger;
+                  const subcategoriesContainer = e.currentTarget.parentElement.getElementsByClassName(
+                    "subcategories"
+                  )[0];
+                  debugger;
                   if (subcategoriesContainer) {
+                    debugger;
                     subcategoriesContainer.classList.toggle("active");
                   }
                 })

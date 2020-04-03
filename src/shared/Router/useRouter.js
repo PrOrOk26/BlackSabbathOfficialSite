@@ -31,12 +31,10 @@ const useRouter = () => {
 
   document.addEventListener("DOMContentLoaded", runRouter);
   window.onpopstate = e => {
-    debugger;
     runRouter(e)
   };
 
   const onNavItemClick = pathName => {
-    debugger;
     window.history.pushState({}, pathName, window.location.origin + pathName);
   };
 
