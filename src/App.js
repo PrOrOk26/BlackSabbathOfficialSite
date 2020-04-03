@@ -6,14 +6,13 @@ import DiscographyComponent from "./DiscographyComponent/DiscographyComponent.js
 import BackgroundImage from "./assets/images/background.jpg";
 
 const App = () => {
-  const { addRoute } = useRouter();
+  const { addRoute, onNavItemClick } = useRouter();
   const contentHeight = 1800;
 
   addRoute("/", () => {
-    const mainContent = document.getElementsByClassName('content')[0];
+    const mainContent = document.getElementsByClassName("content")[0];
 
-    debugger;
-    if(mainContent) {
+    if (mainContent) {
       mainContent.innerHTML = "";
       mainContent.innerHTML = LandingPage().innerHTML;
     }
@@ -21,16 +20,13 @@ const App = () => {
     twttr.widgets.load(document.getElementsByClassName("twitter")[0]);
   });
 
-  addRoute("discography/", () => {
+  addRoute("/discography/", () => {
     const mainContent = document.getElementsByClassName('content')[0];
 
-    debugger;
     if(mainContent) {
       mainContent.innerHTML = "";
-      mainContent.innerHTML = LandingPage().innerHTML;
+      mainContent.innerHTML = DiscographyComponent().innerHTML;
     }
-
-    twttr.widgets.load(document.getElementsByClassName("twitter")[0]);
   });
 
   const onNavbarToggle = e => {
@@ -50,7 +46,7 @@ const App = () => {
     <div class="container">
       <div class="main-image" />
       <div class="navbar-overlay" onclick={onNavbarToggle}></div>
-      <div class="logo" />
+      <a class="logo" href="/"/>
       <a class="navigation-trigger" onclick={onNavbarToggle}>
         <div class="hamburger">
           <span></span>
@@ -62,9 +58,8 @@ const App = () => {
           <span></span>
         </div>
       </a>
-      {NavigationBar({ onNavbarToggle: onNavbarToggle })}
-      <main style={`height: ${contentHeight}px`} class="content">
-      </main>
+      {NavigationBar({ onNavbarToggle, onNavItemClick })}
+      <main style={`height: ${contentHeight}px`} class="content"></main>
     </div>
   );
 };

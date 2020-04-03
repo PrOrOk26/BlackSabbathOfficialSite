@@ -4,11 +4,12 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/",
+    publicPath: '/',
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: "./dist"
+    contentBase: "./dist",
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -20,22 +21,20 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'style-loader',
-          'css-loader',
-          'resolve-url-loader',
+          "style-loader",
+          "css-loader",
+          "resolve-url-loader",
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
-              sourceMap: true,
+              sourceMap: true
             }
           }
-        ],
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
-        use: [
-          'file-loader',
-        ]
+        use: ["file-loader"]
       }
     ]
   },

@@ -5,7 +5,7 @@ import InstagramIcon from "./assets/instagram.svg";
 import YoutubeIcon from "./assets/youtube.svg";
 
 const NavigationBar = props => {
-  const { onNavbarToggle } = props;
+  const { onNavbarToggle, onNavItemClick } = props;
 
   const menuElements = [
     {
@@ -112,7 +112,10 @@ const NavigationBar = props => {
                     "a",
                     {
                       class: "subcategory__link",
-                      href: subcategory.url ?? "#"
+                      href: subcategory.url ?? "#",
+                      onclick: e => {
+                        onNavItemClick(subcategory.url ?? "#");
+                      }
                     },
                     createElement("span", {
                       innerText: subcategory.name
@@ -129,10 +132,9 @@ const NavigationBar = props => {
       {
         class: "social-media"
       },
-      createElement("span",
-      {
-        class: 'social-media__header-text',
-        innerText: 'Follow us on social media'
+      createElement("span", {
+        class: "social-media__header-text",
+        innerText: "Follow us on social media"
       }),
       createElement(
         "ul",

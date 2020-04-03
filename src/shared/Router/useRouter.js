@@ -25,42 +25,23 @@ const useRouter = () => {
   };
 
   const runRouter = e => {
-    const url = window.location.hash.slice(1) || "/";
-    const routeResolved = resolveRoute(url);
+    const routeResolved = resolveRoute(window.location.pathname);
     routeResolved();
   };
 
-
-  window.addEventListener("hashchange", e => {
+  document.addEventListener("DOMContentLoaded", runRouter);
+  window.onpopstate = e => {
     debugger;
-    e.preventDefault();
-    runRouter();
-  });
-
-  window.addEventListener("popstate", event => {
-    debugger;
-    event.preventDefault();
-    runRouter();
-  });
-
-  window.onload = () => {
-    runRouter();
-    const anchors = [...document.getElementsByTagName("a")];
-
-    anchors.forEach(a => {
-      a.addEventListener("click", e => {
-        const url = e.path[1].href ?? "";
-        debugger;
-
-        if (url) {
-          window.history.pushState({ url }, `Black Sabbath`, "/discography/");
-        }
-        runRouter();
-      });
-    });
+    runRouter(e)
   };
 
-  return { addComponentRenderer, addRoute };
+  const onNavItemClick = pathName => {
+    debugger;
+    window.history.pushState({}, pathName, window.location.origin + pathName);
+  };
+
+  return { addComponentRenderer, addRoute, onNavItemClick };
 };
+
 
 export default useRouter;
