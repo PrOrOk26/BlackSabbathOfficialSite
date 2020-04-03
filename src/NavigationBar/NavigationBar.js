@@ -11,7 +11,7 @@ const NavigationBar = props => {
     {
       name: "The band",
       subElements: [
-        { name: "Discography" },
+        { name: "Discography", url: "/discography/" },
         { name: "History" },
         { name: "Awards" }
       ]
@@ -81,7 +81,6 @@ const NavigationBar = props => {
             "a",
             {
               class: "main-category__link",
-              href: "#",
               onclick:
                 elem.subElements &&
                 (e => {
@@ -113,7 +112,7 @@ const NavigationBar = props => {
                     "a",
                     {
                       class: "subcategory__link",
-                      href: "#"
+                      href: subcategory.url ?? "#"
                     },
                     createElement("span", {
                       innerText: subcategory.name

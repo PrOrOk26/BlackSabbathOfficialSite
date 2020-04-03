@@ -1,4 +1,4 @@
-const Router = () => {
+const useRouter = () => {
   const routes = {};
   const componentRenderers = {};
 
@@ -30,7 +30,37 @@ const Router = () => {
     routeResolved();
   };
 
-  return { addComponentRenderer, addRoute, runRouter };
+
+  window.addEventListener("hashchange", e => {
+    debugger;
+    e.preventDefault();
+    runRouter();
+  });
+
+  window.addEventListener("popstate", event => {
+    debugger;
+    event.preventDefault();
+    runRouter();
+  });
+
+  window.onload = () => {
+    runRouter();
+    const anchors = [...document.getElementsByTagName("a")];
+
+    anchors.forEach(a => {
+      a.addEventListener("click", e => {
+        const url = e.path[1].href ?? "";
+        debugger;
+
+        if (url) {
+          window.history.pushState({ url }, `Black Sabbath`, "/discography/");
+        }
+        runRouter();
+      });
+    });
+  };
+
+  return { addComponentRenderer, addRoute };
 };
 
-export default Router;
+export default useRouter;
