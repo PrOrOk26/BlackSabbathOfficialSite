@@ -41,10 +41,13 @@
     "plugins": [
       [
         "@babel/plugin-transform-react-jsx",
-        { 
-          "pragma": "createElement" 
+        {
+          "pragma": "createElement"
         }
       ]
     ]
+  },
+  "dependencies": {
+    "path-to-regexp": "^6.1.0"
   }
 }

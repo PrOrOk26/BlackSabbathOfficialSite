@@ -1,3 +1,5 @@
+import { match } from "path-to-regexp";
+
 const useRouter = () => {
   const routes = {};
   const componentRenderers = {};
@@ -16,30 +18,54 @@ const useRouter = () => {
     }
   };
 
-  const resolveRoute = route => {
+  const testRoutePath = (route) => {
+    let result = {};
+
+    Object.keys(routes).forEach((r) => {
+      const matcher = match(r, { strict: false });
+      const matchingResult = matcher(route);
+
+      if (matchingResult) {
+        result = {
+          matchingResult,
+          routeRenderer: routes[r],
+        };
+      }
+    });
+    return result;
+  };
+
+  const resolveRoute = (route) => {
     try {
-      return routes[route];
+      const { matchingResult = null, routeRenderer = null } = testRoutePath(
+        route
+      );
+
+      if (matchingResult && routeRenderer) {
+        return () => routeRenderer(matchingResult.params ?? {});
+      } else {
+        throw new Error("Matching error");
+      }
     } catch (error) {
-      throw new Error("The route is not defined");
+      console.error(error);
     }
   };
 
-  const runRouter = e => {
+  const runRouter = (e) => {
     const routeResolved = resolveRoute(window.location.pathname);
     routeResolved();
   };
 
   document.addEventListener("DOMContentLoaded", runRouter);
-  window.onpopstate = e => {
-    runRouter(e)
+  window.onpopstate = (e) => {
+    runRouter(e);
   };
 
-  const onNavItemClick = pathName => {
+  const onNavItemClick = (pathName) => {
     window.history.pushState({}, pathName, window.location.origin + pathName);
   };
 
   return { addComponentRenderer, addRoute, onNavItemClick };
 };
-
 
 export default useRouter;

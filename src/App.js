@@ -8,6 +8,7 @@ const App = () => {
   const { addRoute, onNavItemClick } = useRouter();
 
   addRoute("/", () => {
+    debugger;
     const mainContent = document.getElementsByClassName("content")[0];
 
     if (mainContent) {
@@ -18,8 +19,22 @@ const App = () => {
     twttr.widgets.load(document.getElementsByClassName("twitter")[0]);
   });
 
-  addRoute("/discography/", () => {
+  addRoute("/discography", props => {
+    debugger;
     const mainContent = document.getElementsByClassName('content')[0];
+
+    if(mainContent) {
+      mainContent.innerHTML = "";
+      mainContent.innerHTML = DiscographyComponent().innerHTML;
+    }
+  });
+
+  addRoute("/discography/:discid", props => {
+    debugger;
+    const mainContent = document.getElementsByClassName('content')[0];
+    const {
+      discid
+    } = props;
 
     if(mainContent) {
       mainContent.innerHTML = "";
