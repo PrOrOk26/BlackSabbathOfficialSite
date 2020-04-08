@@ -1,6 +1,7 @@
 import createElement from "../shared/components";
 
 const LandingPage = props => {
+
   return (
     <div>
       <h1 class="content__title">
