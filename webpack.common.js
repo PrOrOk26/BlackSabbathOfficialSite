@@ -1,22 +1,27 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+  mode: "development",
   entry: "./src/index.js",
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: "Hello Black Sabbath",
+    }),
+  ],
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: '/',
-    filename: "bundle.js"
-  },
-  devServer: {
-    contentBase: "./dist",
-    historyApiFallback: true,
+    publicPath: "/",
+    filename: "bundle.js",
   },
   module: {
     rules: [
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: ["babel-loader"],
       },
       {
         test: /\.s[ac]ss$/i,
@@ -27,18 +32,18 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-              sourceMap: true
-            }
-          }
-        ]
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
-        use: ["file-loader"]
-      }
-    ]
+        use: ["file-loader"],
+      },
+    ],
   },
   resolve: {
-    extensions: ["*", ".js"]
-  }
+    extensions: ["*", ".js"],
+  },
 };
