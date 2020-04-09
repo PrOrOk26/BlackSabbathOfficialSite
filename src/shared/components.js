@@ -1,8 +1,5 @@
 const createElement = (type, attributes = {}, ...children) => {
   try {
-    if(type === "video") {
-      debugger;
-    }
     const elem = Object.assign(document.createElement(type), attributes);
 
     if (elem.class) {

@@ -72,7 +72,7 @@ const App = () => {
         </div>
       </a>
       {NavigationBar({ onNavbarToggle, onNavItemClick })}
-      <main style="height: 1800px" class="content"></main>
+      <main class="content"></main>
     </div>
   );
 };

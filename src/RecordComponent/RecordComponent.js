@@ -11,7 +11,7 @@ const formatDate = (date) => {
 
 const RecordComponent = (props) => {
   const { discid } = props;
-  debugger;
+  
   const { name, dateReleased, songs, cover } = records.find(
     (r) => r.discid === +discid
   );
