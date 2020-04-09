@@ -1,8 +1,8 @@
 import createElement from "./shared/components.js";
-import App from './App.js';
 import './shared/index.js';
 import "core-js/stable";
-import "regenerator-runtime/runtime";
+import "regenerator-runtime/runtime.js";
+import App from './App.js';
 
 import './index.scss';
 

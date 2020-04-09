@@ -16,7 +16,9 @@ const App = () => {
       mainContent.innerHTML = LandingPage().innerHTML;
     }
 
-    twttr.widgets.load(document.getElementsByClassName("twitter")[0]);
+    twttr.ready(() => {
+      twttr.widgets.load(document.getElementsByClassName("twitter")[0]);
+    });
   });
 
   addRoute("/discography", (props) => {
@@ -28,7 +30,7 @@ const App = () => {
     }
   });
 
-  addRoute("/discography/:discid", props => {
+  addRoute("/discography/:discid", (props) => {
     const mainContent = document.getElementsByClassName("content")[0];
     const { discid } = props;
 
