@@ -1,17 +1,10 @@
 import createElement from "../shared/components";
 import { records } from "../DiscographyComponent/discographyData.js";
-
-const formatDate = (date) => {
-  const year = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date);
-  const month = new Intl.DateTimeFormat("en", { month: "long" }).format(date);
-  const day = new Intl.DateTimeFormat("en", { day: "numeric" }).format(date);
-
-  return `${month} ${day}, ${year}`;
-};
+import formatDate from "../shared/formatDate.js";
 
 const RecordComponent = (props) => {
   const { discid } = props;
-  
+
   const { name, dateReleased, songs, cover } = records.find(
     (r) => r.discid === +discid
   );

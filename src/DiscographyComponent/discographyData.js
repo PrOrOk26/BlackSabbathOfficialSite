@@ -16,6 +16,7 @@ export const records = [
     cover: BlackSabbath,
     name: "Black Sabbath",
     dateReleased: new Date(1970, 2, 14),
+    url: "/discography/1",
     songs: [
       {
         name: "Black Sabbath",
@@ -200,6 +201,7 @@ export const records = [
     cover: Paranoid,
     name: "Paranoid",
     dateReleased: new Date(1970, 2, 14),
+    url: "/discography/2",
     songs: [
       {
         name: "Black Sabbath",
@@ -384,6 +386,7 @@ export const records = [
     cover: MasterOfReality,
     name: "Master of Reality",
     dateReleased: new Date(1971, 2, 14),
+    url: "/discography/3",
     songs: [
       {
         name: "Black Sabbath",
@@ -568,6 +571,7 @@ export const records = [
     cover: Vol4,
     name: "Black Sabbath Vol. 4",
     dateReleased: new Date(1972, 2, 14),
+    url: "/discography/4",
     songs: [
       {
         name: "Black Sabbath",
@@ -752,6 +756,7 @@ export const records = [
     cover: SabbathBloodySabbath,
     name: "Sabbath Bloody Sabbath",
     dateReleased: new Date(1973, 2, 14),
+    url: "/discography/5",
     songs: [
       {
         name: "Black Sabbath",
@@ -936,6 +941,7 @@ export const records = [
     cover: Sabotage,
     name: "Sabotage",
     dateReleased: new Date(1975, 2, 14),
+    url: "/discography/6",
     songs: [
       {
         name: "Black Sabbath",
@@ -1120,6 +1126,7 @@ export const records = [
     cover: TechincalEcstasy,
     name: "Technical Ecstasy",
     dateReleased: new Date(1976, 2, 14),
+    url: "/discography/7",
     songs: [
       {
         name: "Black Sabbath",
@@ -1304,6 +1311,7 @@ export const records = [
     cover: NeverSayDie,
     name: "Never Say Die",
     dateReleased: new Date(1978, 2, 14),
+    url: "/discography/8",
     songs: [
       {
         name: "Black Sabbath",
@@ -1488,6 +1496,7 @@ export const records = [
     cover: HeavenAndHell,
     name: "Heaven and Hell",
     dateReleased: new Date(1980, 2, 14),
+    url: "/discography/9",
     songs: [
       {
         name: "Black Sabbath",
@@ -1672,6 +1681,7 @@ export const records = [
     cover: MobRules,
     name: "Mob Rules",
     dateReleased: new Date(1981, 11, 4),
+    url: "/discography/10",
     songs: [
       {
         name: "Black Sabbath",
@@ -1856,6 +1866,7 @@ export const records = [
     cover: Thirteen,
     name: "Thirteen",
     dateReleased: new Date(2013, 2, 14),
+    url: "/discography/11",
     songs: [
       {
         name: "Black Sabbath",
