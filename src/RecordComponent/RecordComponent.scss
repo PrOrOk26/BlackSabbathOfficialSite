@@ -1,0 +1,63 @@
+.record-header {
+  display: flex;
+  text-align: left;
+  padding-bottom: 30px;
+  justify-content: space-around;
+
+  &__text {
+
+    .title {
+      line-height: 37px;
+      font-size: 56px;
+      letter-spacing: 3px;
+      opacity: 0.15;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__cover {
+    margin-top: -60px;
+  }
+}
+
+.record-main {
+  display: flex;
+  justify-content: flex-end;
+
+  &__songs,
+  &__info {
+    padding: 32px 16px 0;
+  }
+
+  &__songs {
+    width: 50%;
+
+    .songs-list {
+      .song {
+        border-bottom: 1px solid #b4b4b4;
+        text-align: left;
+        padding-bottom: 10px;
+        padding-top: 10px;
+
+        .song-link {
+          color: #000000;
+          margin-left: 10px;
+
+          &:after {
+            content: "";
+            background: url("../assets/images/song-icon.png") no-repeat;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+          }
+
+        }
+      }
+    }
+  }
+
+  &__info {
+    width: 33%;
+    text-align: left;
+  }
+}

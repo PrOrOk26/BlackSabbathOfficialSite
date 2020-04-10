@@ -12,30 +12,30 @@ const RecordComponent = (props) => {
   return (
     <div>
       <div class="record-header">
-        <div class="record-info">
-          <h1>MUSIC</h1>
+        <div class="record-header__text">
+          <h1 class="title">MUSIC</h1>
           <h2>{name}</h2>
-          <h2>{`RELEASED ${formatDate(dateReleased)}`}</h2>
+          <h4 class="">{`RELEASED ${formatDate(dateReleased)}`}</h4>
         </div>
-        <img src={cover} class="record-cover" alt={name} />
+        <img src={cover} alt={name} class="record-header__cover"/>
       </div>
       <div class="record-main">
-        <div class="song-names">
-          <h2>SONGS</h2>
+        <div class="record-main__songs">
           <ul class="songs-list">
             {songs.map((song, index) => {
               return (
-                <li>
+                <li class="song">
                   <span>{index + 1}</span>
-                  <span>{song.name}</span>
-                  <a href="#">Lyrics</a>
+                  <a class="song-link" href="#">
+                    {song.name}
+                  </a>
                 </li>
               );
             })}
           </ul>
         </div>
-        <div class="record-info">
-          <h2>About record</h2>
+        <div class="record-main__info">
+          <h6>About record</h6>
           <p>
             James Hetfield – Guitar, Vocals
             <br />

@@ -139,4 +139,21 @@ h1 {
   line-height: 40px;
   margin-top: 30px;
 }
-
+h2 {
+  font: 500 40px/48px "futura-pt-condensed", sans-serif;
+  text-transform: uppercase;
+  color: #000;
+}
+h4 {
+  font: 500 24px/32px "futura-pt-condensed",sans-serif;
+  text-transform: uppercase;
+  color: #000;
+}
+h6 {
+  font: 700 16px/24px "proxima-nova", sans-serif;
+  color: #000;
+  text-transform: uppercase;
+}
+a {
+  text-decoration: none;
+}
