@@ -5,6 +5,8 @@
   justify-content: space-around;
 
   &__text {
+    width: 50%;
+    flex: none;
 
     .title {
       line-height: 37px;
@@ -15,22 +17,31 @@
     }
   }
 
-  &__cover {
+  .img-wrapper {
+    width: 50%;
     margin-top: -60px;
+    flex: none;
+
+    .cover {
+      max-width: 100%;
+      height: auto;
+    }
   }
 }
 
 .record-main {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
 
   &__songs,
   &__info {
     padding: 32px 16px 0;
+    width: 50%;
+    flex: none;
   }
 
   &__songs {
-    width: 50%;
 
     .songs-list {
       .song {
@@ -50,7 +61,6 @@
             width: 16px;
             height: 16px;
           }
-
         }
       }
     }

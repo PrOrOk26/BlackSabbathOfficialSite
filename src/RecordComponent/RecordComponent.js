@@ -17,7 +17,9 @@ const RecordComponent = (props) => {
           <h2>{name}</h2>
           <h4 class="">{`RELEASED ${formatDate(dateReleased)}`}</h4>
         </div>
-        <img src={cover} alt={name} class="record-header__cover"/>
+        <div class="img-wrapper">
+          <img src={cover} alt={name} class="cover" />
+        </div>
       </div>
       <div class="record-main">
         <div class="record-main__songs">
