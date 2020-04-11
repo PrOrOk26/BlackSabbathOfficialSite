@@ -1,0 +1,52 @@
+.paginator-control {
+  ul {
+    list-style: none;
+
+    li {
+      font-size: 12px;
+      font-weight: 700;
+      color: #9b9b9b;
+      border: 1px solid #9b9b9b;
+      margin: 0 10px;
+      line-height: 23px;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      text-align: center;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: top;
+
+      &.page-current {
+        background-color: #000;
+        color: #fff;
+      }
+
+      a {
+        color: #9b9b9b;
+        line-height: 24px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .page-previous,
+      .page-next {
+        &:after {
+          content: '';
+          background: url("../../assets/images/back.svg");
+          width: 12px;
+          height: 12px;
+          display: inline-block;
+        }
+      }
+
+      .page-next {
+        &:after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

@@ -35,14 +35,34 @@ const useRouter = () => {
     return result;
   };
 
-  const resolveRoute = (route) => {
+  const extractRouteQueryParameters = (queryString) => {
+    if (!queryString) {
+      return {};
+    }
+    const extractor = new URLSearchParams(queryString);
+
+    const parameters = {};
+
+    for(const [key, value] of extractor.entries()) {
+      parameters[key] = value;
+    }
+
+    return parameters;
+  };
+
+  const resolveRoute = (route, queryString) => {
     try {
       const { matchingResult = null, routeRenderer = null } = testRoutePath(
         route
       );
 
+      const queryStringParams = extractRouteQueryParameters(queryString);
+
       if (matchingResult && routeRenderer) {
-        return () => routeRenderer(matchingResult.params ?? {});
+        return () =>
+          routeRenderer(
+            { params: matchingResult.params, queryStringParams } ?? {}
+          );
       } else {
         throw new Error("Matching error");
       }
@@ -52,7 +72,10 @@ const useRouter = () => {
   };
 
   const runRouter = (e) => {
-    const routeResolved = resolveRoute(window.location.pathname);
+    const routeResolved = resolveRoute(
+      window.location.pathname,
+      window.location.search
+    );
     routeResolved();
   };
 

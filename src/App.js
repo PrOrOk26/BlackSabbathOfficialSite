@@ -4,6 +4,7 @@ import NavigationBar from "./NavigationBar/NavigationBar.js";
 import LandingPage from "./LandingPage/LandingPage.js";
 import DiscographyComponent from "./DiscographyComponent/DiscographyComponent.js";
 import RecordComponent from "./RecordComponent/RecordComponent.js";
+import NewsComponent from "./NewsComponent/NewsComponent.js";
 
 const App = () => {
   const { addRoute, onNavItemClick } = useRouter();
@@ -32,11 +33,19 @@ const App = () => {
 
   addRoute("/discography/:discid", (props) => {
     const mainContent = document.getElementsByClassName("content")[0];
-    const { discid } = props;
 
     if (mainContent) {
       mainContent.innerHTML = "";
-      mainContent.innerHTML = RecordComponent({ discid }).innerHTML;
+      mainContent.innerHTML = RecordComponent(props).innerHTML;
+    }
+  });
+
+  addRoute("/news", (props) => {
+    const mainContent = document.getElementsByClassName("content")[0];
+
+    if (mainContent) {
+      mainContent.innerHTML = "";
+      mainContent.innerHTML = NewsComponent(props).innerHTML;
     }
   });
 

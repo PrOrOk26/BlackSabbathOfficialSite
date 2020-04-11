@@ -3,7 +3,9 @@ import { records } from "../DiscographyComponent/discographyData.js";
 import formatDate from "../shared/formatDate.js";
 
 const RecordComponent = (props) => {
-  const { discid } = props;
+  const {
+    params: { discid },
+  } = props;
 
   const { name, dateReleased, songs, cover } = records.find(
     (r) => r.discid === +discid

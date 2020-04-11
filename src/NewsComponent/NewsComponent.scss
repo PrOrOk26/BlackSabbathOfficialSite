@@ -1,0 +1,18 @@
+.news {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  justify-items: center;
+  row-gap: 15px;
+  margin: 30px auto 30px;
+  column-gap: 15px;
+
+  .news {
+    position: relative;
+
+    &__img {
+      height: 255px;
+      width: 262px;
+      object-fit: cover;
+    }
+  }
+}

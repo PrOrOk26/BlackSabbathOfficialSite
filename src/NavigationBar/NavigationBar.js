@@ -21,7 +21,8 @@ const NavigationBar = props => {
       subElements: [{ name: "Past" }, { name: "Upcoming" }]
     },
     {
-      name: "News"
+      name: "News",
+      url: "/news/"
     },
     {
       name: "Media",
@@ -81,6 +82,7 @@ const NavigationBar = props => {
             "a",
             {
               class: "main-category__link",
+              href: elem.url ?? "#",
               onclick:
                 elem.subElements &&
                 (e => {
