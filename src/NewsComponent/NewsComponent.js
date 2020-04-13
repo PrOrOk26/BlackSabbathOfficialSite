@@ -5,7 +5,7 @@ import NewsRenderer from "./NewsRenderer.js";
 
 const NewsComponent = (props) => {
   const {
-    queryStringParams: { page = 1, size = 2 },
+    queryStringParams: { page = 1, size = 4 },
   } = props;
 
   const createNewsPageUrl = (pageNumber) => {
@@ -14,6 +14,7 @@ const NewsComponent = (props) => {
 
   return (
     <div>
+      <h1 class='title'>News</h1>
       {Paginator({
         pageNumber: page,
         data: news,

@@ -1,4 +1,22 @@
-import AwmhCovid19 from './assets/awmh-covid19.jpg';
+import Img1 from './assets/awmh-covid19.jpg';
+import Img2 from './assets/south-america-2020.jpg';
+import Img3 from './assets/MetallicaMondays.jpg';
+import Img4 from './assets/20191104_fire.jpg';
+import Img5 from './assets/2020-04-07-hal-willner.jpg';
+import Img6 from './assets/2020-03-23-update-from-the-bunker.jpg';
+import Img7 from './assets/2020-03-04_mvc.jpg';
+import Img8 from './assets/2020-02-24-a-note-from-james.jpg';
+import Img9 from './assets/2020-02-19-blknd-bevmo.jpg';
+import Img10 from './assets/2020-02-13-save-the-new-date.jpg';
+import Img11 from './assets/2020-01-29-met-scholars.jpg';
+import Img12 from './assets/2020-01-19-ray.jpg';
+import Img13 from './assets/2020-01-07-bushfires.jpg';
+import Img14 from './assets/2019-12-14_kennedycenter.jpg';
+import Img15 from './assets/2019-10-10-dwp.jpg';
+import Img16 from './assets/2019-09-27-note.jpg';
+import Img17 from './assets/2019-09-26_glblctzn.jpg';
+import Img18 from './assets/2019-09-20_awmh-save-the-date.jpg';
+
 
 export const news = [
   {
@@ -7,7 +25,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img1,
     url: '#',
   },
   {
@@ -16,7 +34,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img2,
     url: '#',
   },
   {
@@ -25,7 +43,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img3,
     url: '#',
   },
   {
@@ -34,7 +52,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img4,
     url: '#',
   },
   {
@@ -43,7 +61,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img5,
     url: '#',
   },
   {
@@ -52,7 +70,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img6,
     url: '#',
   },
   {
@@ -61,7 +79,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img7,
     url: '#',
   },
   {
@@ -70,7 +88,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img8,
     url: '#',  
   },
   {
@@ -79,7 +97,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img9,
     url: '#',
   },
   {
@@ -88,7 +106,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img10,
     url: '#',
   },
   {
@@ -97,7 +115,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img11,
     url: '#',
   },
   {
@@ -106,7 +124,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img12,
     url: '#',
   },
   {
@@ -115,7 +133,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img13,
     url: '#',
   },
   {
@@ -124,7 +142,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img14,
     url: '#',
   },
   {
@@ -133,7 +151,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img15,
     url: '#',
   },
   {
@@ -142,7 +160,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img16,
     url: '#',
   },
   {
@@ -151,7 +169,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img17,
     url: '#',
   },
   {
@@ -160,7 +178,7 @@ export const news = [
     tileText: `
       All Within My Hands is reaching out with four grants totaling $350,000 to organizations dedicated to assisting those hit hard by the coronavirus infection
     `,
-    tileImg: AwmhCovid19,
+    tileImg: Img18,
     url: '#',
   },
 ];

@@ -58,11 +58,9 @@ const PaginatorControl = (props) => {
   };
 
   return (
-    <div>
       <div class="paginator-control">
         <ul>{createPaginatorElement()}</ul>
       </div>
-    </div>
   );
 };
 
