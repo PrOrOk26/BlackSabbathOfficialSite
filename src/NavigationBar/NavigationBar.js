@@ -36,12 +36,17 @@ const NavigationBar = (props) => {
     {
       name: "Shop",
       subElements: [
-        { name: "US" },
-        { name: "Canada" },
-        { name: "Germany" },
-        { name: "France" },
-        { name: "ITunes" },
-        { name: "Rest of the world" },
+        { name: "US", url: "https://blacksabbathapparelshop.com/" },
+        { name: "Canada", url: "https://blacksabbathapparelshop.com/" },
+        {
+          name: "Germany",
+          url: "https://blacksabbath.bravado.de/",
+        },
+        {
+          name: "ITunes",
+          url:
+            "https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?path=blacksabbath",
+        },
       ],
     },
   ];
@@ -120,6 +125,7 @@ const NavigationBar = (props) => {
                     {
                       class: "subcategory__link",
                       href: subcategory.url ?? "#",
+                      target: elem.name === 'Shop' ? "_blank" : "",
                       onclick: (e) => {
                         onNavItemClick(subcategory.url ?? "#");
                       },

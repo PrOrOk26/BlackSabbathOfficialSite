@@ -58,7 +58,6 @@ const VideosComponent = (props) => {
     </div>
   );
 
-  debugger;
   return test;
 };
 
