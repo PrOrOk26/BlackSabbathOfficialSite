@@ -5,6 +5,7 @@ import LandingPage from "./LandingPage/LandingPage.js";
 import DiscographyComponent from "./DiscographyComponent/DiscographyComponent.js";
 import RecordComponent from "./RecordComponent/RecordComponent.js";
 import NewsComponent from "./NewsComponent/NewsComponent.js";
+import VideosComponent from "./VideosComponent/VideosComponent.js";
 
 const App = () => {
   const { addRoute, onNavItemClick } = useRouter();
@@ -14,7 +15,7 @@ const App = () => {
 
     if (mainContent) {
       mainContent.innerHTML = "";
-      mainContent.innerHTML = LandingPage().innerHTML;
+      mainContent.append(...LandingPage().children);
     }
 
     twttr.ready(() => {
@@ -27,7 +28,7 @@ const App = () => {
 
     if (mainContent) {
       mainContent.innerHTML = "";
-      mainContent.innerHTML = DiscographyComponent().innerHTML;
+      mainContent.append(...DiscographyComponent(props).children);
     }
   });
 
@@ -36,7 +37,7 @@ const App = () => {
 
     if (mainContent) {
       mainContent.innerHTML = "";
-      mainContent.innerHTML = RecordComponent(props).innerHTML;
+      mainContent.append(...RecordComponent(props).children);
     }
   });
 
@@ -45,7 +46,16 @@ const App = () => {
 
     if (mainContent) {
       mainContent.innerHTML = "";
-      mainContent.innerHTML = NewsComponent(props).innerHTML;
+      mainContent.append(...NewsComponent(props).children);
+    }
+  });
+
+  addRoute("/videos", (props) => {
+    const mainContent = document.getElementsByClassName("content")[0];
+
+    if (mainContent) {
+      mainContent.innerHTML = "";
+      mainContent.append(...VideosComponent(props).children);
     }
   });
 
