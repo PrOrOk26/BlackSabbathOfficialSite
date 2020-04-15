@@ -6,6 +6,7 @@ import DiscographyComponent from "./DiscographyComponent/DiscographyComponent.js
 import RecordComponent from "./RecordComponent/RecordComponent.js";
 import NewsComponent from "./NewsComponent/NewsComponent.js";
 import VideosComponent from "./VideosComponent/VideosComponent.js";
+import PhotosComponent from "./PhotosComponent/PhotosComponent.js";
 
 const App = () => {
   const { addRoute, onNavItemClick } = useRouter();
@@ -56,6 +57,15 @@ const App = () => {
     if (mainContent) {
       mainContent.innerHTML = "";
       mainContent.append(...VideosComponent(props).children);
+    }
+  });
+
+  addRoute("/photos", (props) => {
+    const mainContent = document.getElementsByClassName("content")[0];
+
+    if (mainContent) {
+      mainContent.innerHTML = "";
+      mainContent.append(...PhotosComponent(props).children);
     }
   });
 

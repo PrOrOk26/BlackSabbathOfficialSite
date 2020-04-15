@@ -27,9 +27,13 @@ const NavigationBar = (props) => {
     {
       name: "Media",
       subElements: [
-        { name: "Videos", url: "/videos" },
+        {
+          name: "Videos",
+          url: "/videos",
+        },
         {
           name: "Photos",
+          url: "/photos",
         },
       ],
     },
@@ -125,7 +129,7 @@ const NavigationBar = (props) => {
                     {
                       class: "subcategory__link",
                       href: subcategory.url ?? "#",
-                      target: elem.name === 'Shop' ? "_blank" : "",
+                      target: elem.name === "Shop" ? "_blank" : "",
                       onclick: (e) => {
                         onNavItemClick(subcategory.url ?? "#");
                       },
