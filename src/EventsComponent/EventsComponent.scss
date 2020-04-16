@@ -1,0 +1,33 @@
+.events {
+  
+  .event {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+
+    &__date {
+      font-weight: 700;
+      line-height: 20px;
+      margin-right: 14px;
+      flex-basis: 30%;
+      text-align: start;
+    }
+
+    &__location {
+      text-align: start;
+      .geolocation {
+        font-weight: 700;
+        line-height: 20px;
+        margin-right: 14px;
+      }
+    }
+  }
+}
+
+.events-info {
+  text-align: center;
+
+  font-weight: 700;
+  line-height: 20px;
+  margin-right: 14px;
+}

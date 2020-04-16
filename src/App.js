@@ -7,6 +7,7 @@ import RecordComponent from "./RecordComponent/RecordComponent.js";
 import NewsComponent from "./NewsComponent/NewsComponent.js";
 import VideosComponent from "./VideosComponent/VideosComponent.js";
 import PhotosComponent from "./PhotosComponent/PhotosComponent.js";
+import EventsComponent from "./EventsComponent/EventsComponent.js";
 
 const App = () => {
   const { addRoute, onNavItemClick } = useRouter();
@@ -66,6 +67,40 @@ const App = () => {
     if (mainContent) {
       mainContent.innerHTML = "";
       mainContent.append(...PhotosComponent(props).children);
+    }
+  });
+
+  addRoute("/past", async (props) => {
+    const mainContent = document.getElementsByClassName("content")[0];
+
+    const eventsData = await import("./EventsComponent/eventsData.js");
+
+    if (mainContent) {
+      mainContent.innerHTML = "";
+      mainContent.append(
+        ...EventsComponent({
+          ...props,
+          type: "past",
+          events: eventsData.pastEvents,
+        }).children
+      );
+    }
+  });
+
+  addRoute("/upcoming", async (props) => {
+    const mainContent = document.getElementsByClassName("content")[0];
+
+    const eventsData = await import("./EventsComponent/eventsData.js");
+
+    if (mainContent) {
+      mainContent.innerHTML = "";
+      mainContent.append(
+        ...EventsComponent({
+          ...props,
+          type: "upcoming",
+          events: eventsData.upcomingEvents,
+        }).children
+      );
     }
   });
 

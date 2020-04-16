@@ -12,13 +12,14 @@ const NavigationBar = (props) => {
       name: "The band",
       subElements: [
         { name: "Discography", url: "/discography/" },
-        { name: "History" },
-        { name: "Awards" },
       ],
     },
     {
       name: "Events",
-      subElements: [{ name: "Past" }, { name: "Upcoming" }],
+      subElements: [
+        { name: "Past", url: "/past/" },
+        { name: "Upcoming", url: "/upcoming/" },
+      ],
     },
     {
       name: "News",
