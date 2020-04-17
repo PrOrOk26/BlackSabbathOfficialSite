@@ -9,6 +9,10 @@
   width: 100%;
   max-width: 1280px;
 
+  @include media("<=phone") {
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  }
+
   .news-article {
     display: flex;
     flex-direction: column;
@@ -21,7 +25,6 @@
         height: auto;
         vertical-align: top;
         display: inline-block;
-        max-width: 100%;
       }
     }
 
