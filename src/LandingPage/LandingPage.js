@@ -146,7 +146,6 @@ const LandingPage = (props) => {
         <h4>YouTube</h4>
         <iframe
           src="https://www.youtube.com/embed/hV2ideRjDIk"
-          class='t'
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
