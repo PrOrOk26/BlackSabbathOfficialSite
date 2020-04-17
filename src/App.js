@@ -137,6 +137,13 @@ const App = () => {
       </a>
       {NavigationBar({ onNavbarToggle, onNavItemClick })}
       <main class="content"></main>
+      <footer>
+        <a href="/" class="logo"/>
+        <div class='footer__copyright'>
+          <p>© Black Sabbath</p>
+          <p>All rights reserved</p>
+        </div>
+      </footer>
     </div>
   );
 };

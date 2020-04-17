@@ -9,7 +9,7 @@
     height: 70vh;
   }
 
-  .background-video  {
+  .background-video {
     width: 100%;
   }
 
@@ -166,26 +166,61 @@
     line-height: 25px;
     font-size: 14px;
     font-weight: 300;
-    padding: 1rem 18px 0;
+    padding: 1rem 4rem 1rem;
 
     &__title {
       margin: 20px 0 40px;
     }
 
     &__main-text {
-      margin: 40px;
+      text-align: justify;
+    }
+  }
+
+  .youtube-embed {
+    width: 100%;
+
+    iframe {
+      width: 100%;
+      min-width: 200px;
+      min-height: 500px;
     }
   }
 
   .social-media {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
 
-    .twitter {
-      height: 432px;
-      width: 500px;
+    .twitter,
+    .facebook {
       overflow-y: scroll;
+      height: auto;
+      width: 100%;
+      max-width: 500px;
+      max-height: 432px;
+      margin-bottom: 30px;
+      border: 1px solid #eaeef1;
+      border-radius: 3px;
+
+      h4 {
+        text-align: center;
+      }
+    }
+  }
+
+  footer {
+    background: url("./assets/images/bs_footer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30rem;
+    position: relative;
+
+    & .footer__copyright {
+      position: absolute;
+      right: 50px;
+      bottom: 10px;
+      color: #ffffff;
     }
   }
 }
