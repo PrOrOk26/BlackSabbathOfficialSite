@@ -184,6 +184,15 @@
       width: 100%;
       min-width: 200px;
       min-height: 500px;
+
+      @include media("<tablet") {
+        min-height: 270px;
+      }
+
+      @include media("<phone") {
+        min-height: 200px;
+        min-width: 200px;
+      }
     }
   }
 
@@ -216,11 +225,24 @@
     height: 30rem;
     position: relative;
 
+    @include media("<=tablet") {
+      height: 15rem;
+    }
+
     & .footer__copyright {
+      font-size: 12px;
+      line-height: 12px;
       position: absolute;
       right: 50px;
       bottom: 10px;
       color: #ffffff;
+    }
+
+    .logo {
+      @include media("<=tablet") {
+        top: auto;
+        bottom: 20px;
+      }
     }
   }
 }
