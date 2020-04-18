@@ -4,7 +4,7 @@ import FacebookIcon from "./assets/facebook.svg";
 import InstagramIcon from "./assets/instagram.svg";
 import YoutubeIcon from "./assets/youtube.svg";
 
-const NavigationBar = props => {
+const NavigationBar = (props) => {
   const { onNavbarToggle, onNavItemClick } = props;
 
   const menuElements = [
@@ -12,55 +12,71 @@ const NavigationBar = props => {
       name: "The band",
       subElements: [
         { name: "Discography", url: "/discography/" },
-        { name: "History" },
-        { name: "Awards" }
-      ]
+      ],
     },
     {
       name: "Events",
-      subElements: [{ name: "Past" }, { name: "Upcoming" }]
+      subElements: [
+        { name: "Past", url: "/past/" },
+        { name: "Upcoming", url: "/upcoming/" },
+      ],
     },
     {
-      name: "News"
+      name: "News",
+      url: "/news/",
     },
     {
       name: "Media",
-      subElements: [{ name: "Videos" }, { name: "Photos" }]
+      subElements: [
+        {
+          name: "Videos",
+          url: "/videos",
+        },
+        {
+          name: "Photos",
+          url: "/photos",
+        },
+      ],
     },
     {
       name: "Shop",
       subElements: [
-        { name: "US" },
-        { name: "Canada" },
-        { name: "Germany" },
-        { name: "France" },
-        { name: "ITunes" },
-        { name: "Rest of the world" }
-      ]
-    }
+        { name: "US", url: "https://blacksabbathapparelshop.com/" },
+        { name: "Canada", url: "https://blacksabbathapparelshop.com/" },
+        {
+          name: "Germany",
+          url: "https://blacksabbath.bravado.de/",
+        },
+        {
+          name: "ITunes",
+          url:
+            "https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?path=blacksabbath",
+        },
+      ],
+    },
   ];
 
   const socialMedia = [
     {
       name: "Facebook",
       icon: FacebookIcon,
-      url: "https://www.facebook.com/BlackSabbath"
+      url: "https://www.facebook.com/BlackSabbath",
     },
     {
       name: "Twitter",
       icon: TwitterIcon,
-      url: "https://twitter.com/blacksabbath"
+      url: "https://twitter.com/blacksabbath",
     },
     {
       name: "Instagram",
       icon: InstagramIcon,
-      url: "https://www.instagram.com/blacksabbath/"
+      url: "https://www.instagram.com/blacksabbath/",
     },
     {
       name: "YouTube",
       icon: YoutubeIcon,
-      url: "https://www.youtube.com/channel/UCrx-X329UKv0Y06VhfpFVvw"
-    }
+      url: "https://www.youtube.com/channel/UCrx-X329UKv0Y06VhfpFVvw",
+    },
   ];
 
   return createElement(
@@ -69,59 +85,58 @@ const NavigationBar = props => {
     createElement(
       "ul",
       {
-        class: "navbar__categories"
+        class: "navbar__categories",
       },
       ...menuElements.map((elem, index) => {
         return createElement(
           "li",
           {
-            class: "main-category"
+            class: "main-category",
           },
           createElement(
             "a",
             {
               class: "main-category__link",
+              href: elem.url,
               onclick:
                 elem.subElements &&
-                (e => {
-                  debugger;
+                ((e) => {
                   const subcategoriesContainer = e.currentTarget.parentElement.getElementsByClassName(
                     "subcategories"
                   )[0];
-                  debugger;
                   if (subcategoriesContainer) {
-                    debugger;
                     subcategoriesContainer.classList.toggle("active");
                   }
-                })
+                }),
             },
             createElement("span", {
-              innerText: elem.name
+              innerText: elem.name,
             })
           ),
           elem.subElements &&
             createElement(
               "ul",
               {
-                class: "subcategories"
+                class: "subcategories",
               },
-              ...elem.subElements.map(subcategory =>
+              ...elem.subElements.map((subcategory) =>
                 createElement(
                   "li",
                   {
-                    class: "subcategory"
+                    class: "subcategory",
                   },
                   createElement(
                     "a",
                     {
                       class: "subcategory__link",
                       href: subcategory.url ?? "#",
-                      onclick: e => {
+                      target: elem.name === "Shop" ? "_blank" : "",
+                      onclick: (e) => {
                         onNavItemClick(subcategory.url ?? "#");
-                      }
+                      },
                     },
                     createElement("span", {
-                      innerText: subcategory.name
+                      innerText: subcategory.name,
                     })
                   )
                 )
@@ -133,16 +148,16 @@ const NavigationBar = props => {
     createElement(
       "div",
       {
-        class: "social-media"
+        class: "social-media",
       },
       createElement("span", {
         class: "social-media__header-text",
-        innerText: "Follow us on social media"
+        innerText: "Follow us on social media",
       }),
       createElement(
         "ul",
         {},
-        ...socialMedia.map(elem => {
+        ...socialMedia.map((elem) => {
           return createElement(
             "li",
             {},
@@ -150,19 +165,19 @@ const NavigationBar = props => {
               "a",
               {
                 href: elem.url,
-                target: "_blank"
+                target: "_blank",
               },
               createElement(
                 "i",
                 {},
                 createElement("span", {
                   class: "visually-hidden",
-                  innerText: elem.name
+                  innerText: elem.name,
                 }),
                 createElement("img", {
                   class: "sm-icon",
                   src: elem.icon,
-                  alt: elem.name
+                  alt: elem.name,
                 })
               )
             )

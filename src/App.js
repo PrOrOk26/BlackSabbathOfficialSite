@@ -1,20 +1,37 @@
 import createElement from "./shared/components.js";
-import useRouter from "./shared/Router/useRouter.js";
+import useRouter, { redirect } from "./shared/Router/useRouter.js";
 import NavigationBar from "./NavigationBar/NavigationBar.js";
 import LandingPage from "./LandingPage/LandingPage.js";
 import DiscographyComponent from "./DiscographyComponent/DiscographyComponent.js";
 import RecordComponent from "./RecordComponent/RecordComponent.js";
+import NewsComponent from "./NewsComponent/NewsComponent.js";
+import VideosComponent from "./VideosComponent/VideosComponent.js";
+import PhotosComponent from "./PhotosComponent/PhotosComponent.js";
+import EventsComponent from "./EventsComponent/EventsComponent.js";
+import NoMatchComponent from "./NoMatchComponent/NoMatchComponent.js";
 
 const App = () => {
   const { addRoute, onNavItemClick } = useRouter();
 
-  addRoute("/", () => {
+  const renderMainContent = (ComponentToRender) => {
     const mainContent = document.getElementsByClassName("content")[0];
 
-    if (mainContent) {
-      mainContent.innerHTML = "";
-      mainContent.innerHTML = LandingPage().innerHTML;
+    try {
+      if (mainContent) {
+        mainContent.innerHTML = "";
+        mainContent.append(...ComponentToRender().children);
+      }
+    } catch(e) {
+      if(e.message === '404') {
+        redirect('/404');
+        return;
+      } 
+      console.error(e);
     }
+  };
+
+  addRoute("/", (props) => {
+    renderMainContent(() => LandingPage(props));
 
     twttr.ready(() => {
       twttr.widgets.load(document.getElementsByClassName("twitter")[0]);
@@ -22,22 +39,49 @@ const App = () => {
   });
 
   addRoute("/discography", (props) => {
-    const mainContent = document.getElementsByClassName("content")[0];
-
-    if (mainContent) {
-      mainContent.innerHTML = "";
-      mainContent.innerHTML = DiscographyComponent().innerHTML;
-    }
+    renderMainContent(() => DiscographyComponent(props));
   });
 
   addRoute("/discography/:discid", (props) => {
-    const mainContent = document.getElementsByClassName("content")[0];
-    const { discid } = props;
+    renderMainContent(() => RecordComponent(props));
+  });
 
-    if (mainContent) {
-      mainContent.innerHTML = "";
-      mainContent.innerHTML = RecordComponent({ discid }).innerHTML;
-    }
+  addRoute("/news", (props) => {
+    renderMainContent(() => NewsComponent(props));
+  });
+
+  addRoute("/videos", (props) => {
+    renderMainContent(() => VideosComponent(props));
+  });
+
+  addRoute("/photos", (props) => {
+    renderMainContent(() => PhotosComponent(props));
+  });
+
+  addRoute("/past", async (props) => {
+    const eventsData = await import("./EventsComponent/eventsData.js");
+    renderMainContent(() =>
+      EventsComponent({
+        ...props,
+        type: "past",
+        events: eventsData.pastEvents,
+      })
+    );
+  });
+
+  addRoute("/upcoming", async (props) => {
+    const eventsData = await import("./EventsComponent/eventsData.js");
+    renderMainContent(() =>
+      EventsComponent({
+        ...props,
+        type: "upcoming",
+        events: eventsData.upcomingEvents,
+      })
+    );
+  });
+
+  addRoute("/404", (props) => {
+    renderMainContent(() => NoMatchComponent(props));
   });
 
   const onNavbarToggle = (e) => {
@@ -72,7 +116,14 @@ const App = () => {
         </div>
       </a>
       {NavigationBar({ onNavbarToggle, onNavItemClick })}
-      <main style="height: 1800px" class="content"></main>
+      <main class="content"></main>
+      <footer>
+        <a href="/" class="logo" />
+        <div class="footer__copyright">
+          <p>© Black Sabbath</p>
+          <p>All rights reserved</p>
+        </div>
+      </footer>
     </div>
   );
 };

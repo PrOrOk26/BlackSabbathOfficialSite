@@ -1,0 +1,111 @@
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  justify-items: center;
+  row-gap: 15px;
+  margin: 30px auto 30px;
+  column-gap: 15px;
+  max-width: 1280px;
+
+  @include media("<=tablet") {
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  }
+
+  .thumbnail {
+    cursor: pointer;
+    border-radius: 3px;
+    height: 275px;
+    width: 100%;
+
+    @include media("<=tablet") {
+      height: 175px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.photos-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 300ms ease-in-out, opacity 300ms ease-in-out;
+  z-index: 9000;
+  overflow: auto;
+  background: url("../assets/images/fancybox_overlay.png");
+  padding: 45px 30px;
+
+  .photos-overlay {
+    width: 100%;
+    z-index: 9010;
+    position: relative;
+
+    .overlay-inner {
+      width: 100%;
+      height: 0;
+      padding-bottom: 45%;
+      position: relative;
+
+      @include media("<=tablet") {
+        padding-bottom: 100%;
+      }
+
+      .modal-photo {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        object-fit: contain;
+      }
+    }
+
+    .cross {
+      height: 36px;
+      width: 36px;
+      transform: rotate(45deg);
+      position: absolute;
+      top: -38px;
+      right: 0;
+      cursor: pointer;
+      pointer-events: auto;
+
+      span {
+        content: "";
+        display: block;
+        height: 3px;
+        background: #fff;
+        border-radius: 3px;
+        margin: auto;
+
+        &:nth-child(1) {
+          height: 36px;
+          position: absolute;
+          left: calc(50% - 2px);
+          width: 2px;
+        }
+
+        &:nth-child(2) {
+          width: 36px;
+          position: absolute;
+          top: calc(50% - 2px);
+          height: 2px;
+        }
+      }
+    }
+  }
+
+  &--show {
+    visibility: initial;
+    opacity: 1;
+  }
+}

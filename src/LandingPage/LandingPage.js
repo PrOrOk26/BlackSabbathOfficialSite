@@ -1,7 +1,6 @@
 import createElement from "../shared/components";
 
-const LandingPage = props => {
-
+const LandingPage = (props) => {
   return (
     <div>
       <h1 class="content__title">
@@ -143,18 +142,27 @@ const LandingPage = props => {
         year later as Reunion) and in 1999, 2002, 2004 and 2005, when Black
         Sabbath headlined Osbourne’s “Ozzfest” festival.
       </p>
+      <div class="youtube-embed">
+        <h4>YouTube</h4>
+        <iframe
+          src="https://www.youtube.com/embed/hV2ideRjDIk"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
       <h1>Follow us on social media</h1>
       <div class="social-media">
-        <div>
-          <div class="twitter">
-            <a
-              class="twitter-timeline"
-              href="https://twitter.com/BlackSabbath?ref_src=twsrc%5Etfw"
-              data-chrome="noheader"
-            ></a>
-          </div>
+        <div class="twitter">
+          <h4>Twitter</h4>
+          <a
+            class="twitter-timeline"
+            href="https://twitter.com/BlackSabbath?ref_src=twsrc%5Etfw"
+            data-chrome="noheader"
+          ></a>
         </div>
-        <div>
+        <div class="facebook">
+          <h4>Facebook</h4>
           <iframe
             src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FBlackSabbath%2Fposts%2F10157394882579615&width=500"
             width="500"

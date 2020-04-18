@@ -1,4 +1,11 @@
 @import './scss/reset.scss';
-@import './DiscographyComponent/index.scss';
-@import './NavigationBar/index.scss';
+@import './scss/include_media.scss';
+@import './DiscographyComponent/DiscographyComponent.scss';
+@import './NavigationBar/NavigationBar.scss';
+@import './RecordComponent/RecordComponent.scss';
+@import './NewsComponent/NewsComponent.scss';
+@import './shared/Paginator/Pagination.scss';
+@import './VideosComponent/VideosComponent.scss';
+@import './PhotosComponent/PhotosComponent.scss';
+@import './EventsComponent/EventsComponent.scss';
 @import './App.scss';
