@@ -1,8 +1,17 @@
+import createElement from "../components.js";
 import { match } from "path-to-regexp";
+
+export const redirect = (route) => {
+  window.location.replace(route);
+};
 
 const useRouter = () => {
   const routes = {};
   const componentRenderers = {};
+
+  const onNavItemClick = (pathName) => {
+    window.history.pushState({}, pathName, window.location.origin + pathName);
+  };
 
   const addComponentRenderer = (name, componentRenderer) => {
     return (componentRenderers[name] = componentRenderer);
@@ -20,10 +29,11 @@ const useRouter = () => {
 
   const testRoutePath = (route) => {
     let result = {};
+    let routeSingleSlashes = route.replace(/\/\/+/g, "/");
 
     Object.keys(routes).forEach((r) => {
       const matcher = match(r, { strict: false });
-      const matchingResult = matcher(route);
+      const matchingResult = matcher(routeSingleSlashes);
 
       if (matchingResult) {
         result = {
@@ -43,7 +53,7 @@ const useRouter = () => {
 
     const parameters = {};
 
-    for(const [key, value] of extractor.entries()) {
+    for (const [key, value] of extractor.entries()) {
       parameters[key] = value;
     }
 
@@ -67,6 +77,9 @@ const useRouter = () => {
         throw new Error("Matching error");
       }
     } catch (error) {
+      if (error.message === "Matching error") {
+        return () => redirect("/404");
+      }
       console.error(error);
     }
   };
@@ -82,10 +95,6 @@ const useRouter = () => {
   document.addEventListener("DOMContentLoaded", runRouter);
   window.onpopstate = (e) => {
     runRouter(e);
-  };
-
-  const onNavItemClick = (pathName) => {
-    window.history.pushState({}, pathName, window.location.origin + pathName);
   };
 
   return { addComponentRenderer, addRoute, onNavItemClick };

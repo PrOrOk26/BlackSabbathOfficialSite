@@ -1,15 +1,25 @@
 import createElement from "../shared/components";
 import { records } from "../DiscographyComponent/discographyData.js";
 import formatDate from "../shared/formatDate.js";
+import redirect from "../shared/components.js";
 
 const RecordComponent = (props) => {
   const {
     params: { discid },
   } = props;
 
-  const { name, dateReleased, songs, cover } = records.find(
-    (r) => r.discid === +discid
-  );
+  const record = records.find((r) => r.discid === +discid);
+
+  if (!record) {
+    throw new Error('404');
+  }
+
+  const {
+    name = null,
+    dateReleased = null,
+    songs = null,
+    cover = null,
+  } = record;
 
   return (
     <div>
