@@ -32,7 +32,7 @@
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        padding: 0 26px 0 18px;
+        padding-left: 18px;
         overflow: visible;
         width: 100%;
       }
@@ -42,6 +42,21 @@
         font-weight: 700;
         line-height: 32px;
         cursor: pointer;
+        position: relative;
+
+        .link-icon {
+          position: absolute;
+          right: 30px;
+          top: 10px;
+          height: 10px;
+          width: 10px;
+          transition: transform 0.5s ease-in-out;
+          will-change: transform;
+
+          &.link-icon--active {
+            transform: rotate(0.5turn);
+          }
+        }
       }
 
       .subcategories {
@@ -51,8 +66,9 @@
         visibility: hidden;
         transition: height 0.5s 0s, opacity 0.3s 0s;
         padding-left: 21px;
+        will-change: height, opacity, visibility;
 
-        &.active {
+        &.subcategories--active {
           width: auto;
           visibility: initial;
           opacity: 1;
@@ -67,33 +83,25 @@
       }
 
       &:nth-child(1) {
-        .subcategories {
-          &.active {
-            height: 23px * 1;
-          }
+        .subcategories--active {
+          height: 23px * 1;
         }
       }
 
       &:nth-child(2) {
-        .subcategories {
-          &.active {
-            height: 23px * 2;
-          }
+        .subcategories--active {
+          height: 23px * 2;
         }
       }
 
       &:nth-child(4) {
-        .subcategories {
-          &.active {
-            height: 23px * 2;
-          }
+        .subcategories--active {
+          height: 23px * 2;
         }
       }
       &:nth-child(5) {
-        .subcategories {
-          &.active {
-            height: 23px * 6;
-          }
+        .subcategories--active {
+          height: 23px * 6;
         }
       }
     }

@@ -142,14 +142,6 @@ h1 {
   font-size: 32px;
   line-height: 40px;
   margin-top: 30px;
-
-  &.title {
-    line-height: 37px;
-    font-size: 56px;
-    letter-spacing: 3px;
-    opacity: 0.15;
-    margin-bottom: 40px;
-  }
 }
 h2 {
   font: 500 40px/48px "futura-pt-condensed", sans-serif;
@@ -157,7 +149,7 @@ h2 {
   color: #000;
 }
 h4 {
-  font: 500 24px/32px "futura-pt-condensed",sans-serif;
+  font: 500 24px/32px "futura-pt-condensed", sans-serif;
   text-transform: uppercase;
   color: #000;
 }
@@ -168,4 +160,17 @@ h6 {
 }
 a {
   text-decoration: none;
+}
+.title {
+  line-height: 37px;
+  font-size: 56px;
+  letter-spacing: 3px;
+  opacity: 0.15;
+  margin-bottom: 30px;
+}
+
+.title-icon {
+  height: 30px;
+  width: 30px;
+  margin: 30px auto;
 }

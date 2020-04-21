@@ -1,4 +1,7 @@
 import createElement from "../shared/components";
+import TwitterIcon from "../assets/images/twitter.svg";
+import FacebookIcon from "../assets/images/facebook.svg";
+import YouTubeIcon from "../assets/images/youtube.svg";
 
 const LandingPage = (props) => {
   return (
@@ -143,7 +146,6 @@ const LandingPage = (props) => {
         Sabbath headlined Osbourne’s “Ozzfest” festival.
       </p>
       <div class="youtube-embed">
-        <h4>YouTube</h4>
         <iframe
           src="https://www.youtube.com/embed/hV2ideRjDIk"
           frameborder="0"
@@ -153,16 +155,16 @@ const LandingPage = (props) => {
       </div>
       <h1>Follow us on social media</h1>
       <div class="social-media">
+        <img src={TwitterIcon} class="title-icon"></img>
         <div class="twitter">
-          <h4>Twitter</h4>
           <a
             class="twitter-timeline"
             href="https://twitter.com/BlackSabbath?ref_src=twsrc%5Etfw"
             data-chrome="noheader"
           ></a>
         </div>
+        <img src={FacebookIcon} class="title-icon"></img>
         <div class="facebook">
-          <h4>Facebook</h4>
           <iframe
             src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FBlackSabbath%2Fposts%2F10157394882579615&width=500"
             width="500"

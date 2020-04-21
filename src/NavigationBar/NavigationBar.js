@@ -1,8 +1,9 @@
 import createElement from "../shared/components.js";
-import TwitterIcon from "./assets/twitter.svg";
-import FacebookIcon from "./assets/facebook.svg";
-import InstagramIcon from "./assets/instagram.svg";
-import YoutubeIcon from "./assets/youtube.svg";
+import TwitterIcon from "../assets/images/twitter.svg";
+import FacebookIcon from "../assets/images/facebook.svg";
+import InstagramIcon from "../assets/images/instagram.svg";
+import YoutubeIcon from "../assets/images/youtube.svg";
+import IconLink from "./assets/downArrow.svg";
 
 const NavigationBar = (props) => {
   const { onNavbarToggle, onNavItemClick } = props;
@@ -104,14 +105,21 @@ const NavigationBar = (props) => {
                   const subcategoriesContainer = e.currentTarget.parentElement.getElementsByClassName(
                     "subcategories"
                   )[0];
+                  const linkIcon = e.currentTarget.getElementsByClassName("link-icon")[0];
+
                   if (subcategoriesContainer) {
-                    subcategoriesContainer.classList.toggle("active");
+                    subcategoriesContainer.classList.toggle("subcategories--active");
+                    linkIcon.classList.toggle("link-icon--active");
                   }
                 }),
             },
             createElement("span", {
               innerText: elem.name,
-            })
+            }),
+            elem.subElements && createElement("img", {
+              class: 'link-icon',
+              src: IconLink,
+            }),
           ),
           elem.subElements &&
             createElement(
