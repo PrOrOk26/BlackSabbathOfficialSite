@@ -34,8 +34,7 @@ const RecordComponent = (props) => {
         </div>
       </div>
       <div class="record-main">
-        <div class="record-main__songs">
-          <ul class="songs-list">
+          <ul class="record-main__songs">
             {songs.map((song, index) => {
               return (
                 <li class="song">
@@ -47,7 +46,6 @@ const RecordComponent = (props) => {
               );
             })}
           </ul>
-        </div>
         <div class="record-main__info">
           <h6>About record</h6>
           <p>

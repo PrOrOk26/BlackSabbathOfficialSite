@@ -6,7 +6,6 @@
   flex-wrap: wrap;
 
   .img-wrapper {
-
     .cover {
       width: 100%;
       min-width: 155px;
@@ -21,30 +20,27 @@
   justify-content: space-between;
 
   &__songs {
-
     flex: 2 0 200px;
     margin-right: 30px;
     margin-bottom: 30px;
     max-width: 500px;
 
-    .songs-list {
-      .song {
-        border-bottom: 1px solid #b4b4b4;
-        text-align: left;
-        padding-bottom: 10px;
-        padding-top: 10px;
+    .song {
+      border-bottom: 1px solid #b4b4b4;
+      text-align: left;
+      padding-bottom: 10px;
+      padding-top: 10px;
 
-        .song-link {
-          color: #000000;
-          margin-left: 10px;
+      .song-link {
+        color: #000000;
+        margin-left: 10px;
 
-          &:after {
-            content: "";
-            background: url("../assets/images/song-icon.png") no-repeat;
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-          }
+        &:after {
+          content: "";
+          background: url("../assets/images/song-icon.png") no-repeat;
+          display: inline-block;
+          width: 16px;
+          height: 16px;
         }
       }
     }
@@ -53,5 +49,6 @@
   &__info {
     text-align: left;
     flex: 1 0 200px;
+    max-width: 400px;
   }
 }
