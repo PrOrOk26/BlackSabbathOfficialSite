@@ -1,7 +1,7 @@
 import createElement from "./shared/components.js";
 import './shared/twitter.js';
 import "core-js/stable";
-import "regenerator-runtime/runtime.js";
+import "regenerator-runtime";
 import App from './App.js';
 
 import './index.scss';
